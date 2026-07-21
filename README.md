@@ -47,4 +47,5 @@
 ### Verification of Git and GCC installation on macOS.
 ![Verify](images/git-gcc-verify.png)
 
-### 
+### GITHUB Repository Link
+https://github.com/honey-dot/vsd-squadron-internship
