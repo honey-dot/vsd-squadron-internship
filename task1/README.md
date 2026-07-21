@@ -1,78 +1,50 @@
-# Task 1: Firmware Library Fundamentals
-
-## Deadline
-4 days from the task announcement date.
-
----
-
-## Objective
-
-The goal of Task 1 is to:
-
-- Understand how firmware libraries are structured  
-- Understand how application code uses APIs  
-- Set up a basic development environment  
-- Build and study a simple firmware-style library  
-
-This task does **not** require the VSDSquadron Mini board.
-
----
+## DE:
+    macOS
+    Git 2.51.0
+    Apple Clang 21.0.0 (C compiler)
 
 
-## What to Do
+## A short written explanation WITH COMPULSORY IMAGES for each of below item (1–2 pages or Markdown):
+    What is a firmware library?
+    Why APIs are important in embedded systems?
+    What was understood from the lab code?
 
-### Step 1: Read the Code
+### What is a firmware library?
+    Firmware is a type of software run inside an embedded system and interacts with the hardware. It's the intermediary between application-level code(here, main.c) and the actual hardware components(here, GPIO pins).
+    Firmware library is a reusable set of low-level code. It basically hides the internal working from the main.c. Here, the firmware library contains gpio.c and gpio.h.
+    gpio.h : declares the API
+    gpio.c : contains the implementation
 
-- Open `gpio.h` and understand the exposed API  
-- Open `gpio.c` and see how the API is implemented  
-- Open `main.c` and observe how the API is used by the application  
+### Why are APIs important in embedded systems?
+    API: Application Programming Interrface
+    It defines "how" the app-code will communicate with a firmware library.
+    functions:
+        void gpio_init(int pin, int direction);
+        void gpio_wriite(int pin, int value);
+        int gpio_read(int pin);
+    Each function has its own parameter requirement or the return value thats demonstrated here.
+    APIs hide the register level complexity. It increases code readability.
 
----
+### What was understoof from the lab code?
+    The task1 folder contains 4 files: 
+        gpio.h
+        gpio.c
+        main.c
+        README.md
+    **GPIO.H**: header file that defines the interface. It defines 2 GPIO directions:
+        #define GPIO_output 1
+        #define GPIO_input 0
+    **GPIO.C**: implmentation of the functions called in gpio.h
+    **MAIN.C**: LED and buttons pins defined. 
+![Verify](images/flow.jpeg)
 
-### Step 2: Build the Code
+## A screenshot (with your username clearly displayed on terminal) showing:
+    Successful compilation and Program Output
+![Verify](images/cloned-rep.png)
+![Verify](images/push.png)
+![Verify](images/compile-and-output.png)
 
-From inside the `task1` directory, run:
+### Verification of Git and GCC installation on macOS.
+![Verify](images/git-gcc-verify.png)
 
-```bash
-gcc main.c gpio.c -o task1_demo
-````
-
----
-
-### Step 3: Run the Program
-
-```bash
-./task1_demo
-```
-
----
-
-## Expected Output
-
-Console messages simulating GPIO behavior.
-
----
-
-## What to Submit
-
-1. A short explanation (Markdown or PDF) covering:
-
-   * What is a firmware library?
-   * Why are APIs important?
-   * What you understood from this task
-
-2. Screenshots of:
-
-   * Successful compilation
-   * Program output
-
-3. GitHub repository link (forked or personal)
-
----
-
-## Important
-
-This task sets the foundation for all upcoming hardware and firmware work.
-Incomplete understanding here **will cause difficulties in later tasks**.
-
-
+### 
